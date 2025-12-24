@@ -1,0 +1,37 @@
+A small music company was recently hit by a threat actor.
+The company's Art Directory, Larry, claims to have discovered a random note on his Desktop.
+
+Given that they are just starting, they did not have time to properly set up the appropriate tools for capturing artifacts. Their IT contact only set up Wireshark, which captured the events in question.
+
+You are tasked with finding out how this attack unfolded and what the threat actor executed on the system.
+
+Click on the Download Task Files button at the top of this task. You will be provided with an traffic.pcap file. Once downloaded, you can begin your analysis in order to answer the questions.
+
+Note: For free users using the AttackBox, the challenge is best done using your own environment. Some browsers may detect the file as malicious. The PCAP file is safe to download with md5 of 23393189b3cb22f7ac01ce10427886de. In general, as a security practice, download the PCAP and analyze it on a dedicated virtual machine, and not on your host OS.
+
+Answer the questions below
+What ports did the threat actor initially find open? Format: from lowest to highest, separated by a comma.
+Answer format: **,**,**,***,***,***,***,***,***,***,****,****,****
+
+Check
+The threat actor found four valid usernames, but only one username allowed the attacker to achieve a foothold on the server. What was the username? Format: Domain.TLD\username
+Answer format: *********.***\*****.***
+
+Check
+The threat actor captured a hash from the user in question 2. What are the last 30 characters of that hash?
+
+Answer format: ******************************
+
+Check
+What is the user's password?
+
+Answer format: **********
+
+Check
+What were the second and third commands that the threat actor executed on the system? Format: command1,command2
+
+Answer format: *** **** ****\****** *:\******,*** **** ****\*** *:\***
+
+Check
+What is the flag?
+Answer format: ***{**_***_********}

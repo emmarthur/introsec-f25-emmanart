@@ -1,0 +1,82 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.Python
+
+# Virtual Environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+Thumbs.db
+desktop.ini
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Environment variables
+.env
+.env.local
+
+# Temporary files
+*.tmp
+*.bak
+*.log
+
+# Compiled output
+*.out
+*.o
+
+# HW2 - ignore everything except hw2.md and images/
+hw2/*
+!hw2/hw2.md
+!hw2/images/
+!hw2/images/**
+
+# HW3 - ignore files not mentioned in hw3.md
+hw3/crack_md5.py
+hw3/DEBUG_STEPS.md
+hw3/MD5_CRACKING_GUIDE.md
+hw3/minimal_test.py
+hw3/rockyou_12char.txt
+hw3/rockyou.txt
+hw3/test_key_hash.txt
+hw3/test_key.txt
+hw3/test_pass.txt
+hw3/test_simple.py
+hw3/test_wordlist.txt
+
+# HW5 - ignore everything except specific files
+hw5/*
+!hw5/hw5.md
+!hw5/snort-completed-emmanart.png
+!hw5/objdump_bomb.asm
+!hw5/strings_out_bomb.txt
+!hw5/bomb
+
+# cloud-arthur-emmanart - ignore everything except hw2 folder
+hw5/cloud-arthur-emmanart/*
+!hw5/cloud-arthur-emmanart/hw2/
+!hw5/cloud-arthur-emmanart/hw2/**
+
+# Final project - ignore documentation files
+final/challenges_encountered.md
+final/completion_attempts.md
+final/final_notes.md
+final/solution_connections.md

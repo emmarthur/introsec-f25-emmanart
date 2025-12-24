@@ -1,0 +1,674 @@
+ _________________________________________________________________________________________________________________________
+(  #####                                                           ######                                            ###  )
+( #     # #####  ###### ###### ##### # #    #  ####   ####         #     # #####   ####   ####  #####    ##   #    # ###  )
+( #       #    # #      #        #   # ##   # #    # #             #     # #    # #    # #    # #    #  #  #  ##  ## ###  )
+( #  #### #    # #####  #####    #   # # #  # #       ####         ######  #    # #    # #      #    # #    # # ## #  #   )
+( #     # #####  #      #        #   # #  # # #  ###      # ###    #       #####  #    # #  ### #####  ###### #    #      )
+( #     # #   #  #      #        #   # #   ## #    # #    # ###    #       #   #  #    # #    # #   #  #    # #    # ###  )
+(  #####  #    # ###### ######   #   # #    #  ####   ####   #     #       #    #  ####   ####  #    # #    # #    # ###  )
+(                                                           #                                                             )
+ -------------------------------------------------------------------------------------------------------------------------
+                                               o                    ^    /^
+                                                o                  / \  // \
+                                                 o   |\___/|      /   \//  .\
+                                                  o  /O  O  \__  /    //  | \ \           *----*
+                                                    /     /  \/_/    //   |  \  \          \   |
+                                                    @___@`    \/_   //    |   \   \         \/\ \
+                                                   0/0/|       \/_ //     |    \    \         \  \
+                                               0/0/0/0/|        \///      |     \     \       |  |
+                                            0/0/0/0/0/_|_ /   (  //       |      \     _\     |  /
+                                         0/0/0/0/0/0/`/,_ _ _/  ) ; -.    |    _ _\.-~       /   /
+                                                     ,-}        _      *-.|.-~-.           .~    ~
+                                    \     \__/        `/\      /                 ~-. _ .-~      /
+                                     \____(==)           *.   }            {                   /
+                                     (    (--)          .----~-.\        \-`                 .~
+                                     //__\\  \__ Ack!   ///.----..<        \             _ -~
+                                    //    \\               ///-._ _ _ _ _ _ _{^ - - - - ~
+
+Today is Mon Nov 10 02:56:26 PM PST 2025
+
+welcome_message:[:19: unknown condition: -eq
+
+Up time: 14:56:26 up  2:18,  1 user,  load average: 3.21, 0.76, 0.25
+You are on Arturiantech
+enable-fzf-tab: command not found
+Command 'atuin' not found, but can be installed with:
+sudo snap install atuin  # version 18.10.0, or
+sudo apt  install atuin
+See 'snap info atuin' for additional versions.
+❯ cd hw
+cd: no such file or directory: hw
+zsh: exit 1
+❯ cd hw3
+cd: no such file or directory: hw3
+zsh: exit 1
+❯ cd introsec-f25-emmanart/
+c      ✓    hw1/           hw2/      ?    hw3/      ✓    README.md
+❯ cd hw3
+      ?    crack_md5.py                ?    rockyou_12char.txt       ?    test_key.john
+      ?    DEBUG_STEPS.md              ?    rockyou20.txt            ?    test_key.pub
+      ?    hw3.md                      ?    rockyou_4char.txt        ?    test_simple.py
+      ?    images/                     ?    rockyou.txt              ?    test_wordlist.txt
+      ?    MD5_CRACKING_GUIDE.md       ?    sample.awk               ?    two_word.txt
+      ?    minimal_test.py             ?    test_key
+❯ sed 's/$/ /
+quote> zsh: exit 130
+
+
+╭─    /mnt/c/U/e/Desktop/Projects/PythonStuff/PSUSec/introsec-f25-emmanart/hw3  on   main ?1 ─ INT ✘  at 14:58:28  ─╮
+╰─ sed                                                                                                                 98%  ─╯
+[address - line number or /pattern/]
+[sed command]
+a  -- append text
+b  -- branch
+#  -- comment
+c  -- replace line with text
+d  -- delete pattern space
+D  -- delete up to the first newline in the pattern space
+e  -- execute a command and include it's output
+F  -- print the filename of the current input file
+G  -- append hold space to pattern space
+g  -- copy hold space to pattern space
+H  -- append pattern space to hold space
+h  -- copy pattern space to hold space
+i  -- insert text
+l  -- list current line in visually unambiguous form
+N  -- append the next line of input to the pattern space
+n  -- read the next line of input into pattern space
+:  -- place label
+p  -- print the current pattern space
+P  -- print up to the first newline of the current pattern space
+=  -- print current line number
+Q  -- quit
+q  -- quit after printing pattern space
+R  -- append a line from file
+r  -- append contents of file
+s  -- substitute regex
+T  -- branch if no s command has been successful
+t  -- branch if s command has been successful
+v  -- fail if GNU extensions not supported or older than specified version
+w  -- write pattern space to file
+W  -- write the first line of pattern space to file
+x  -- exchange hold and pattern spaces
+y  -- transliterate characters
+z  -- empty the pattern space
+❯ sed 's/$/ /' two_word.txt > two_word_space.txt
+❯ sed 's/$/ /' rockyou20.txt > rockyou20_space.txt
+❯ hashcat --stdout -a 1 rockyou20_space.txt rockyou20_space.txt > two_word_space.txt
+cuInit(): no CUDA-capable device is detected
+
+❯ wc -l two_word_space.txt
+400 two_word_space.txt
+❯ head -3 two_word_space.txt
+llauren llauren
+llauren jandito
+llauren jane1993
+❯ hashcat --stdout -a 1 two_word_space.txt rockyou20.txt > combinations.txt
+cuInit(): no CUDA-capable device is detected
+
+❯ wc -l combinations.txt
+8000 combinations.txt
+❯ head -3 combinations.txt
+llauren llauren llauren
+llauren llauren jandito
+llauren llauren jane1993
+❯ hashcat -m 22911 -a 0 test_key.john combinations.txt
+hashcat (v6.2.6) starting
+
+cuInit(): no CUDA-capable device is detected
+
+OpenCL API (OpenCL 3.0 PoCL 6.0+debian  Linux, None+Asserts, RELOC, SPIR-V, LLVM 18.1.8, SLEEF, DISTRO, POCL_DEBUG) - Platform #1 [The pocl project]
+====================================================================================================================================================
+* Device #1: cpu-haswell-12th Gen Intel(R) Core(TM) i7-1255U, 14913/29891 MB (4096 MB allocatable), 12MCU
+
+This hash-mode is known to emit multiple valid candidates for the same hash.
+Use --keep-guessing to continue attack after finding the first crack.
+
+Minimum password length supported by kernel: 0
+Maximum password length supported by kernel: 256
+
+Hashfile 'test_key.john' on line 1 (test_k...0bc34dac824715854867030a4$24$130): Signature unmatched
+No hashes loaded.
+
+Started: Mon Nov 10 15:15:20 2025
+Stopped: Mon Nov 10 15:15:21 2025
+[1]    4284 exit 255   hashcat -m 22911 -a 0 test_key.john combinations.txt
+❯ hashcat -m 22911 -a 0 test_key.john combinations.txt
+hashcat (v6.2.6) starting
+
+cuInit(): no CUDA-capable device is detected
+
+OpenCL API (OpenCL 3.0 PoCL 6.0+debian  Linux, None+Asserts, RELOC, SPIR-V, LLVM 18.1.8, SLEEF, DISTRO, POCL_DEBUG) - Platform #1 [The pocl project]
+====================================================================================================================================================
+* Device #1: cpu-haswell-12th Gen Intel(R) Core(TM) i7-1255U, 14913/29891 MB (4096 MB allocatable), 12MCU
+
+This hash-mode is known to emit multiple valid candidates for the same hash.
+Use --keep-guessing to continue attack after finding the first crack.
+
+Minimum password length supported by kernel: 0
+Maximum password length supported by kernel: 256
+
+Hashfile 'test_key.john' on line 1 (test_k...0bc34dac824715854867030a4$24$130): Signature unmatched
+No hashes loaded.
+
+Started: Mon Nov 10 15:16:10 2025
+Stopped: Mon Nov 10 15:16:11 2025
+[1]    4411 exit 255   hashcat -m 22911 -a 0 test_key.john combinations.txt
+❯ sed 's/^test_key://' test_key.john > test_key_hash.txt
+❯ hashcat -m 22911 -a 0 test_key_hash.txt combinations.txt
+hashcat (v6.2.6) starting
+
+cuInit(): no CUDA-capable device is detected
+
+OpenCL API (OpenCL 3.0 PoCL 6.0+debian  Linux, None+Asserts, RELOC, SPIR-V, LLVM 18.1.8, SLEEF, DISTRO, POCL_DEBUG) - Platform #1 [The pocl project]
+====================================================================================================================================================
+* Device #1: cpu-haswell-12th Gen Intel(R) Core(TM) i7-1255U, 14913/29891 MB (4096 MB allocatable), 12MCU
+
+This hash-mode is known to emit multiple valid candidates for the same hash.
+Use --keep-guessing to continue attack after finding the first crack.
+
+Minimum password length supported by kernel: 0
+Maximum password length supported by kernel: 256
+
+Hashfile 'test_key_hash.txt' on line 1 ($sshng...0bc34dac824715854867030a4$24$130): Token length exception
+
+* Token length exception: 1/1 hashes
+  This error happens if the wrong hash type is specified, if the hashes are
+  malformed, or if input is otherwise not as expected (for example, if the
+  --username option is used but no username is present)
+
+No hashes loaded.
+
+Started: Mon Nov 10 15:23:32 2025
+Stopped: Mon Nov 10 15:23:32 2025
+[1]    5162 exit 255   hashcat -m 22911 -a 0 test_key_hash.txt combinations.txt
+❯ hashcat --help | grep -i ssh
+   6700 | AIX {ssha1}                                                | Operating System
+   6400 | AIX {ssha256}                                              | Operating System
+   6500 | AIX {ssha512}                                              | Operating System
+   1411 | SSHA-256(Base64), LDAP {SSHA256}                           | FTP, HTTP, SMTP, LDAP Server
+   1711 | SSHA-512(Base64), LDAP {SSHA512}                           | FTP, HTTP, SMTP, LDAP Server
+    111 | nsldaps, SSHA-1(Base64), Netscape LDAP SSHA                | FTP, HTTP, SMTP, LDAP Server
+  10300 | SAP CODVN H (PWDSALTEDHASH) iSSHA-1                        | Enterprise Application Software (EAS)
+  22911 | RSA/DSA/EC/OpenSSH Private Keys ($0$)                      | Private Key
+  22921 | RSA/DSA/EC/OpenSSH Private Keys ($6$)                      | Private Key
+  22931 | RSA/DSA/EC/OpenSSH Private Keys ($1, $3$)                  | Private Key
+  22941 | RSA/DSA/EC/OpenSSH Private Keys ($4$)                      | Private Key
+  22951 | RSA/DSA/EC/OpenSSH Private Keys ($5$)                      | Private Key
+❯ hashcat -m 22921 -a 0 test_key.john combinations.txt
+hashcat (v6.2.6) starting
+
+cuInit(): no CUDA-capable device is detected
+
+OpenCL API (OpenCL 3.0 PoCL 6.0+debian  Linux, None+Asserts, RELOC, SPIR-V, LLVM 18.1.8, SLEEF, DISTRO, POCL_DEBUG) - Platform #1 [The pocl project]
+====================================================================================================================================================
+* Device #1: cpu-haswell-12th Gen Intel(R) Core(TM) i7-1255U, 14913/29891 MB (4096 MB allocatable), 12MCU
+
+This hash-mode is known to emit multiple valid candidates for the same hash.
+Use --keep-guessing to continue attack after finding the first crack.
+
+Minimum password length supported by kernel: 0
+Maximum password length supported by kernel: 256
+
+Hashfile 'test_key.john' on line 1 (test_k...760bc34dac824715854867030a4$24$1): Signature unmatched
+No hashes loaded.
+
+Started: Mon Nov 10 15:26:29 2025
+Stopped: Mon Nov 10 15:26:30 2025
+[1]    5568 exit 255   hashcat -m 22921 -a 0 test_key.john combinations.txt
+❯ hashcat -m 22921 -a 0 test_key combinations.txt
+hashcat (v6.2.6) starting
+
+cuInit(): no CUDA-capable device is detected
+
+OpenCL API (OpenCL 3.0 PoCL 6.0+debian  Linux, None+Asserts, RELOC, SPIR-V, LLVM 18.1.8, SLEEF, DISTRO, POCL_DEBUG) - Platform #1 [The pocl project]
+====================================================================================================================================================
+* Device #1: cpu-haswell-12th Gen Intel(R) Core(TM) i7-1255U, 14913/29891 MB (4096 MB allocatable), 12MCU
+
+This hash-mode is known to emit multiple valid candidates for the same hash.
+Use --keep-guessing to continue attack after finding the first crack.
+
+Minimum password length supported by kernel: 0
+Maximum password length supported by kernel: 256
+
+Hashfile 'test_key' on line 1 (-----BEGIN OPENSSH PRIVATE KEY-----): Separator unmatched
+Hashfile 'test_key' on line 2 (b3Blbn...IAAAAGYmNyeXB0AAAAGAAAABBFgowbQX): Separator unmatched
+Hashfile 'test_key' on line 3 (M9trTJ...aC1lZDI1NTE5AAAAIBofFq90HNOvn2UF): Separator unmatched
+Hashfile 'test_key' on line 4 (BgvjDf...moFmVIu7hDHRCQeK1SAFAejV/RNvtIfz): Separator unmatched
+Hashfile 'test_key' on line 5 (tclW2z...JETWwp5E36iALGafmq/durQUdKaOhrlK): Separator unmatched
+Hashfile 'test_key' on line 6 (ptABci...oD4pSzWqf71GWNf5pbtW96VbZAKnobvH): Separator unmatched
+Hashfile 'test_key' on line 7 (vFI9oBb12/pf2/JUhQR2C8NNrIJHFYVIZwMKQ=): Separator unmatched
+Hashfile 'test_key' on line 8 (-----END OPENSSH PRIVATE KEY-----): Separator unmatched
+No hashes loaded.
+
+Started: Mon Nov 10 15:27:55 2025
+Stopped: Mon Nov 10 15:27:55 2025
+[1]    5752 exit 255   hashcat -m 22921 -a 0 test_key combinations.txt
+❯ john --wordlist=combinations.txt test_key.john
+Created directory: /home/emmarthur/.john
+Using default input encoding: UTF-8
+Loaded 1 password hash (SSH, SSH private key [RSA/DSA/EC/OPENSSH 32/64])
+Cost 1 (KDF/cipher [0=MD5/AES 1=MD5/3DES 2=Bcrypt/AES]) is 2 for all loaded hashes
+Cost 2 (iteration count) is 24 for all loaded hashes
+Will run 12 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+0g 0:00:02:51 DONE (2025-11-10 17:58) 0g/s 46.05p/s 46.05c/s 46.05C/s 0835912921 211024060126 tawana2..0835912921 0835912921 0835912921
+Session completed.
+❯ grep "m71864 flygal32 903242"
+^C
+[1]    7058 interrupt  grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv
+❯ grep "m71864 flygal32 903242" combinations.txt
+m71864 flygal32 903242
+❯ john --show test_key.john
+0 password hashes cracked, 1 left
+❯ john --wordlist=combinations.txt test_key.john --format=sshng
+Unknown ciphertext format name requested
+[1]    7564 exit 1     john --wordlist=combinations.txt test_key.john --format=sshng
+❯ john --wordlist=combinations.txt test_key.john --format=SSH
+Using default input encoding: UTF-8
+Loaded 1 password hash (SSH, SSH private key [RSA/DSA/EC/OPENSSH 32/64])
+Cost 1 (KDF/cipher [0=MD5/AES 1=MD5/3DES 2=Bcrypt/AES]) is 2 for all loaded hashes
+Cost 2 (iteration count) is 24 for all loaded hashes
+Will run 12 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+0g 0:00:02:55 DONE (2025-11-10 18:05) 0g/s 45.01p/s 45.01c/s 45.01C/s 0835912921 211024060126 tawana2..0835912921 0835912921 0835912921
+Session completed.
+❯ grep "m71864 flygal32 903242" combinations.txt | cat -A
+m71864 flygal32 903242$
+❯ john --wordlist=combinations.txt test_key
+Using default input encoding: UTF-8
+No password hashes loaded (see FAQ)
+❯ echo "m71864 flygal32 903242" > test_pass.txt
+❯
+❯ john --wordlist=test_pass.txt test_key.john
+Using default input encoding: UTF-8
+Loaded 1 password hash (SSH, SSH private key [RSA/DSA/EC/OPENSSH 32/64])
+Cost 1 (KDF/cipher [0=MD5/AES 1=MD5/3DES 2=Bcrypt/AES]) is 2 for all loaded hashes
+Cost 2 (iteration count) is 24 for all loaded hashes
+Will run 12 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+Warning: Only 1 candidate left, minimum 12 needed for performance.
+0g 0:00:00:00 DONE (2025-11-10 18:10) 0g/s 5.882p/s 5.882c/s 5.882C/s m71864 flygal32 903242
+Session completed.
+❯ john --show test_key.john
+0 password hashes cracked, 1 left
+❯ ssh-keygen -y -f test_key
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions 0777 for 'test_key' are too open.
+It is required that your private key files are NOT accessible by others.
+This private key will be ignored.
+Load key "test_key": bad permissions
+[1]    8751 exit 255   ssh-keygen -y -f test_key
+❯ chmod 600 test_key
+❯ ssh-keygen -y -f test_key
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions 0777 for 'test_key' are too open.
+It is required that your private key files are NOT accessible by others.
+This private key will be ignored.
+Load key "test_key": bad permissions
+[1]    9244 exit 255   ssh-keygen -y -f test_key
+❯ ls -l test_key
+   rwxrwxrwx   1   emmarthur   emmarthur    464 B     Mon Nov 10 12:28:31 2025   ?    test_key
+❯ chmod 600 test_key
+❯ ls -l test_key
+   rwxrwxrwx   1   emmarthur   emmarthur    464 B     Mon Nov 10 12:28:31 2025   ?    test_key
+❯ python combinations.py
+Traceback (most recent call last):
+  File "/mnt/c/Users/emmak/Desktop/Projects/PythonStuff/PSUSec/introsec-f25-emmanart/hw3/combinations.py", line 19, in <module>
+    print(generate_combinations(["hello", "world", "test"], 3))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/emmak/Desktop/Projects/PythonStuff/PSUSec/introsec-f25-emmanart/hw3/combinations.py", line 14, in generate_combinations
+    dfs(0, [])
+  File "/mnt/c/Users/emmak/Desktop/Projects/PythonStuff/PSUSec/introsec-f25-emmanart/hw3/combinations.py", line 12, in dfs
+    dfs(index + 1, trip)
+  File "/mnt/c/Users/emmak/Desktop/Projects/PythonStuff/PSUSec/introsec-f25-emmanart/hw3/combinations.py", line 12, in dfs
+    dfs(index + 1, trip)
+  File "/mnt/c/Users/emmak/Desktop/Projects/PythonStuff/PSUSec/introsec-f25-emmanart/hw3/combinations.py", line 12, in dfs
+    dfs(index + 1, trip)
+  [Previous line repeated 995 more times]
+RecursionError: maximum recursion depth exceeded
+[1]    11430 exit 1     python combinations.py
+❯ python combinations.py
+Traceback (most recent call last):
+  File "/mnt/c/Users/emmak/Desktop/Projects/PythonStuff/PSUSec/introsec-f25-emmanart/hw3/combinations.py", line 19, in <module>
+    print(generate_combinations(["hello", "world", "test"], 3))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/emmak/Desktop/Projects/PythonStuff/PSUSec/introsec-f25-emmanart/hw3/combinations.py", line 14, in generate_combinations
+    dfs(0, [])
+  File "/mnt/c/Users/emmak/Desktop/Projects/PythonStuff/PSUSec/introsec-f25-emmanart/hw3/combinations.py", line 12, in dfs
+    dfs(index + 1, trip)
+  File "/mnt/c/Users/emmak/Desktop/Projects/PythonStuff/PSUSec/introsec-f25-emmanart/hw3/combinations.py", line 12, in dfs
+    dfs(index + 1, trip)
+  File "/mnt/c/Users/emmak/Desktop/Projects/PythonStuff/PSUSec/introsec-f25-emmanart/hw3/combinations.py", line 12, in dfs
+    dfs(index + 1, trip)
+  [Previous line repeated 995 more times]
+RecursionError: maximum recursion depth exceeded
+[1]    11568 exit 1     python combinations.py
+❯ python combinations.py
+Traceback (most recent call last):
+  File "/mnt/c/Users/emmak/Desktop/Projects/PythonStuff/PSUSec/introsec-f25-emmanart/hw3/combinations.py", line 19, in <module>
+    print(generate_combinations(["hello", "world", "test"], 3))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/emmak/Desktop/Projects/PythonStuff/PSUSec/introsec-f25-emmanart/hw3/combinations.py", line 14, in generate_combinations
+    dfs(0, [])
+  File "/mnt/c/Users/emmak/Desktop/Projects/PythonStuff/PSUSec/introsec-f25-emmanart/hw3/combinations.py", line 12, in dfs
+    dfs(index + 1, trip.copy())
+  File "/mnt/c/Users/emmak/Desktop/Projects/PythonStuff/PSUSec/introsec-f25-emmanart/hw3/combinations.py", line 12, in dfs
+    dfs(index + 1, trip.copy())
+  File "/mnt/c/Users/emmak/Desktop/Projects/PythonStuff/PSUSec/introsec-f25-emmanart/hw3/combinations.py", line 12, in dfs
+    dfs(index + 1, trip.copy())
+  [Previous line repeated 995 more times]
+RecursionError: maximum recursion depth exceeded
+[1]    11648 exit 1     python combinations.py
+❯ python combinations.py
+['hello hello hello', 'hello hello world', 'hello hello test', 'hello world hello', 'hello world world', 'hello world test', 'hello test hello', 'hello test world', 'hello test test', 'world hello hello', 'world hello world', 'world hello test', 'world world hello', 'world world world', 'world world test', 'world test hello', 'world test world', 'world test test', 'test hello hello', 'test hello world', 'test hello test', 'test world hello', 'test world world', 'test world test', 'test test hello', 'test test world', 'test test test']
+❯ python combinations.py
+['hello hello hello', 'hello hello world', 'hello hello test', 'hello world hello', 'hello world world', 'hello world test', 'hello test hello', 'hello test world', 'hello test test', 'world hello hello', 'world hello world', 'world hello test', 'world world hello', 'world world world', 'world world test', 'world test hello', 'world test world', 'world test test', 'test hello hello', 'test hello world', 'test hello test', 'test world hello', 'test world world', 'test world test', 'test test hello', 'test test world', 'test test test'] 27
+❯ python combinations.py
+['hello hello hello', 'hello hello world', 'hello hello test', 'hello hello hour', 'hello world hello', 'hello world world', 'hello world test', 'hello world hour', 'hello test hello', 'hello test world', 'hello test test', 'hello test hour', 'hello hour hello', 'hello hour world', 'hello hour test', 'hello hour hour', 'world hello hello', 'world hello world', 'world hello test', 'world hello hour', 'world world hello', 'world world world', 'world world test', 'world world hour', 'world test hello', 'world test world', 'world test test', 'world test hour', 'world hour hello', 'world hour world', 'world hour test', 'world hour hour', 'test hello hello', 'test hello world', 'test hello test', 'test hello hour', 'test world hello', 'test world world', 'test world test', 'test world hour', 'test test hello', 'test test world', 'test test test', 'test test hour', 'test hour hello', 'test hour world', 'test hour test', 'test hour hour', 'hour hello hello', 'hour hello world', 'hour hello test', 'hour hello hour', 'hour world hello', 'hour world world', 'hour world test', 'hour world hour', 'hour test hello', 'hour test world', 'hour test test', 'hour test hour', 'hour hour hello', 'hour hour world', 'hour hour test', 'hour hour hour'] 64
+❯ python combinations.py
+❯ wc -l combinations.txt three_word_combinations.txt
+  8000 combinations.txt
+  8000 three_word_combinations.txt
+ 16000 total
+❯ diff combinations.txt three_word_combinations.txt
+❯ echo "48bb6e862e54f2a795ffc4e541caed4d" > hash1.txt
+❯ john --format=Raw-MD5 --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt
+Using default input encoding: UTF-8
+Loaded 1 password hash (Raw-MD5 [MD5 256/256 AVX2 8x3])
+Warning: no OpenMP support for this hash type, consider --fork=12
+Press 'q' or Ctrl-C to abort, almost any other key for status
+easy             (?)
+1g 0:00:00:00 DONE (2025-11-10 19:08) 33.33g/s 5747Kp/s 5747Kc/s 5747KC/s florida69..eagames
+Use the "--show --format=Raw-MD5" options to display all of the cracked passwords reliably
+Session completed.
+❯ john --show --format=Raw-MD5 hash1.txt
+?:easy
+
+1 password hash cracked, 0 left
+❯ john --format=Raw-MD5 --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt > /dev/null 2>&1 && john --show --format=Raw-MD5 hash1.txt
+?:easy
+
+1 password hash cracked, 0 left
+❯ echo "CBFDAC6008F9CAB4083784CBD1874F76618D2A97" > hash1.txt
+❯ john --format=Raw-SHA1 --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt > /dev/null 2>&1 && john --show --format=Raw-SHA1 hash1.txt
+?:password123
+
+1 password hash cracked, 0 left
+❯ echo "1C8BFE8F801D79745C4631D09FFF36C82AA37FC4CCE4FC946683D7B336B63032" > hash1.txt
+❯ john --format=Raw-SHA1 --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt >| /dev/null 2>&1 && john --show --format=Raw-SHA1 hash1.txt
+0 password hashes cracked, 0 left
+❯ john --format=Raw-SHA256 --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt > /dev/null 2>&1 && john --show --format=Raw-SHA256 hash1.txt
+?:letmein
+
+1 password hash cracked, 0 left
+❯ echo '$2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom' > hash1.txt
+❯ john --format=bcrypt --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt > /dev/null 2>&1 && john --show --format=bcrypt hash1.txt
+[1]    16817 exit 1     john --format=bcrypt --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt >
+❯ john --format=bcrypt --mask='?l?l?l?l' hash1.txt > /dev/null 2>&1 && john --show --format=bcrypt hash1.txt
+[1]    17487 exit 1     john --format=bcrypt --mask='?l?l?l?l' hash1.txt > /dev/null 2>&1
+❯ john --format=bcrypt --wordlist=/usr/share/wordlists/rockyou_4char.txt hash1.txt > /dev/null 2>&1 && john --show --format=bcrypt hash1.txt
+[1]    17805 exit 1     john --format=bcrypt --wordlist=/usr/share/wordlists/rockyou_4char.txt  >  2>
+❯ john --format=bcrypt --wordlist=rockyou_4char.txt hash1.txt > /dev/null 2>&1 && john --show --format=bcrypt hash1.txt
+?:bleh
+
+1 password hash cracked, 0 left
+❯ echo "279412f945939ba78ce0758d3fd83daa" > hash1.txt
+❯ john --format=Raw-MD4 --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt > /dev/null 2>&1 && john --show --format=Raw-MD4 hash1.txt
+0 password hashes cracked, 1 left
+❯ john --format=Raw-MD5 --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt > /dev/null 2>&1 && john --show --format=Raw-MD5 hash1.txt
+0 password hashes cracked, 1 left
+❯ john --format=NT --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt > /dev/null 2>&1 && john --show --format=NT hash1.txt
+0 password hashes cracked, 1 left
+❯ hashid 279412f945939ba78ce0758d3fd83daa
+Analyzing '279412f945939ba78ce0758d3fd83daa'
+[+] MD2
+[+] MD5
+[+] MD4
+[+] Double MD5
+[+] LM
+[+] RIPEMD-128
+[+] Haval-128
+[+] Tiger-128
+[+] Skein-256(128)
+[+] Skein-512(128)
+[+] Lotus Notes/Domino 5
+[+] Skype
+[+] Snefru-128
+[+] NTLM
+[+] Domain Cached Credentials
+[+] Domain Cached Credentials 2
+[+] DNSSEC(NSEC3)
+[+] RAdmin v2.x
+❯ john --format=Raw-MD5 --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt > /dev/null 2>&1 && john --show --format=Raw-MD5 hash1.txt
+0 password hashes cracked, 1 left
+❯ john --format=NT --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt > /dev/null 2>&1 && john --show --format=NT hash1.txt
+0 password hashes cracked, 1 left
+❯ john --format=Raw-MD4 --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt > /dev/null 2>&1 && john --show --format=Raw-MD4 hash1.txt
+0 password hashes cracked, 1 left
+❯ john --list=formats | grep -i md4
+416 formats (149 dynamic formats shown as just "dynamic_n" here)
+Padlock, Palshop, Panama, PBKDF2-HMAC-MD4, PBKDF2-HMAC-MD5, PBKDF2-HMAC-SHA1,
+Raw-Blake2, Raw-Keccak, Raw-Keccak-256, Raw-MD4, Raw-MD5, Raw-MD5u, Raw-SHA1,
+❯ john --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt > /dev/null 2>&1 && john --show hash1.txt
+0 password hashes cracked, 2 left
+❯ john --format=Raw-MD4 --mask='?a?a?a?a?a?a?a?a?a?a' hash1.txt > /dev/null 2>&1 && john --show --format=Raw-MD4 hash1.txt
+[1]    21472 exit 1     john --format=Raw-MD4 --mask='?a?a?a?a?a?a?a?a?a?a' hash1.txt > /dev/null 2>&
+❯ echo "F09EDCB1FCEFC6DFB23DC3505A882655FF77375ED8AA2D1C13F640FCCC2D0C85" > hash1.txt
+❯ john --format=Raw-SHA256 --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt > /dev/null 2>&1 && john --show --format=Raw-SHA256 hash1.txt
+?:paule
+
+1 password hash cracked, 0 left
+❯ echo "1DFECA0C002AE40B8619ECF94819CC1B" > hash1.txt
+❯ john --format=Raw-MD5 --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt > /dev/null 2>&1 && john --show --format=Raw-MD5 hash1.txt
+0 password hashes cracked, 1 left
+❯ john --format=Raw-MD5 --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt >| /dev/null 2>&1 && john --show --format=Raw-MD5 hash1.txt
+0 password hashes cracked, 1 left
+❯ john --format=NT --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt > /dev/null 2>&1 && john --show --format=NT hash1.txt
+?:n63umy8lkf4i
+
+1 password hash cracked, 0 left
+❯ echo '$6$aReallyHardSalt$6WKUTqzq.UQQmrm0p/T7MPpMbGNnzXPMAXi4bJMl9be.cfi3/qxIf.hsGpS41BqMhSrHVXgMpdjS6xeKZAs02.' > hash1.txt
+❯ john --format=sha512crypt --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt > /dev/null 2>&1 && john --show --format=sha512crypt hash1.txt
+[1]    22449 exit 1     john --format=sha512crypt --wordlist=/usr/share/wordlists/rockyou.txt  >  2>&
+❯ grep -E '^.{6}$' /usr/share/wordlists/rockyou.txt > rockyou_6char.txt && john --format=sha512crypt --wordlist=rockyou_6char.txt hash1.txt > /dev/null 2>&1 && john --show --format=sha512crypt hash1.txt
+?:waka99
+
+1 password hash cracked, 0 left
+❯ ls -l test_key
+   rwxrwxrwx   1   emmarthur   emmarthur    464 B     Mon Nov 10 12:28:31 2025   ?    test_key
+❯ ls -l test_key.john
+cat test_key.john
+   rwxrwxrwx   1   emmarthur   emmarthur    643 B     Mon Nov 10 15:23:07 2025   ?    test_key.john
+test_key:$sshng$6$16$45828c1b41733db6b4c9a6ee93562f1c$290$6f70656e7373682d6b65792d7631000000000a6165733235362d63747200000006626372797074000000180000001045828c1b41733db6b4c9a6ee93562f1c0000001800000001000000330000000b7373682d65643235353139000000201a1f16af741cd3af9f6505060be30dfef6020001e6d536471f7a5156356de174000000a04dde0a69a8166548bbb8431d109078ad5200501e8d5fd136fb487f3b5c956db3a88be67e026678740f198c5d1f0b39e943bbaab8bfe97af52444d6c29e44dfa8802c669f9aafddbab41474a68e86b94aa6d0017224863b749a95a364890f0d4b7d2cecc0837f71135f78e458ca03e294b35aa7fbd4658d7f9a5bb56f7a55b6402a7a1bbc7bc523da016f5dbfa5fdbf2548504760bc34dac824715854867030a4$24$1%
+❯ grep -n "m71864 flygal32 903242" combinations.txt
+3417:m71864 flygal32 903242
+❯ john --wordlist=combinations.txt test_key.john
+Using default input encoding: UTF-8
+Loaded 1 password hash (SSH, SSH private key [RSA/DSA/EC/OPENSSH 32/64])
+Cost 1 (KDF/cipher [0=MD5/AES 1=MD5/3DES 2=Bcrypt/AES]) is 2 for all loaded hashes
+Cost 2 (iteration count) is 24 for all loaded hashes
+Will run 12 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+0g 0:00:01:20 46.07% (ETA: 20:51:45) 0g/s 45.29p/s 45.29c/s 45.29C/s m43759769 mmeagan llauren..m43759769 noizer69 ODUDPT2010
+Session aborted
+[1]    24798 exit 1     john --wordlist=combinations.txt test_key.john
+❯ john --format=SSH --wordlist=combinations.txt test_key.john
+Using default input encoding: UTF-8
+Loaded 1 password hash (SSH, SSH private key [RSA/DSA/EC/OPENSSH 32/64])
+Cost 1 (KDF/cipher [0=MD5/AES 1=MD5/3DES 2=Bcrypt/AES]) is 2 for all loaded hashes
+Cost 2 (iteration count) is 24 for all loaded hashes
+Will run 12 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+0g 0:00:03:07 DONE (2025-11-10 20:55) 0g/s 42.17p/s 42.17c/s 42.17C/s 0835912921 211024060126 tawana2..0835912921 0835912921 0835912921
+Session completed.
+❯ john --format=sshng --wordlist=combinations.txt test_key.john
+Unknown ciphertext format name requested
+[1]    25747 exit 1     john --format=sshng --wordlist=combinations.txt test_key.john
+❯ cp test_key.john test_key.txt
+❯ john --format=SSH --wordlist=combinations.txt test_key.txt
+Using default input encoding: UTF-8
+Loaded 1 password hash (SSH, SSH private key [RSA/DSA/EC/OPENSSH 32/64])
+Cost 1 (KDF/cipher [0=MD5/AES 1=MD5/3DES 2=Bcrypt/AES]) is 2 for all loaded hashes
+Cost 2 (iteration count) is 24 for all loaded hashes
+Will run 12 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+0g 0:00:02:54 DONE (2025-11-10 21:02) 0g/s 45.15p/s 45.15c/s 45.15C/s 0835912921 211024060126 tawana2..0835912921 0835912921 0835912921
+Session completed.
+❯ echo "m71864 flygal32 903242" > test_pass.txt
+john --format=SSH --wordlist=test_pass.txt test_key.txt > /dev/null 2>&1 && john --show --format=SSH test_key.txt
+0 password hashes cracked, 1 left
+❯ python3 /usr/share/john/ssh2john.py test_key > test_key.john
+❯ cat test_key.txt | od -c | tail -5
+0001120   6   f   5   d   b   f   a   5   f   d   b   f   2   5   4   8
+0001140   5   0   4   7   6   0   b   c   3   4   d   a   c   8   2   4
+0001160   7   1   5   8   5   4   8   6   7   0   3   0   a   4   $   2
+0001200   4   $   1
+0001203
+❯ python3 /usr/share/john/ssh2john.py test_key > test_key_clean.john
+❯ john --format=SSH --wordlist=test_pass.txt test_key_clean.john > /dev/null 2>&1 && john --show --format=SSH test_key_clean.john
+test_key:m71864 flygal32 903242
+
+1 password hash cracked, 0 left
+❯ john --format=SSH --wordlist=combinations.txt test_key_clean.john > /dev/null 2>&1 && john --show --format=SSH test_key_clean.john
+test_key:m71864 flygal32 903242
+
+1 password hash cracked, 0 left
+❯ john --format=Raw-MD4 --mask='?a?a?a?a?a?a?a?a?a?a' hash1.txt > /dev/null 2>&1 && john --show --format=Raw-MD4 hash1.txt
+0 password hashes cracked, 0 left
+❯ echo "279412f945939ba78ce0758d3fd83daa" > hash1.txt
+❯ grep -E '^.{10}$' /usr/share/wordlists/rockyou.txt > rockyou_10char.txt
+❯ john --format=Raw-MD4 --wordlist=rockyou_10char.txt hash1.txt > /dev/null 2>&1 && john --show --format=Raw-MD4 hash1.txt
+0 password hashes cracked, 1 left
+❯ john --wordlist=rockyou_10char.txt hash1.txt
+Warning: detected hash type "LM", but the string is also recognized as "dynamic=md5($p)"
+Use the "--format=dynamic=md5($p)" option to force loading these as that type instead
+Warning: detected hash type "LM", but the string is also recognized as "HAVAL-128-4"
+Use the "--format=HAVAL-128-4" option to force loading these as that type instead
+Warning: detected hash type "LM", but the string is also recognized as "MD2"
+Use the "--format=MD2" option to force loading these as that type instead
+Warning: detected hash type "LM", but the string is also recognized as "mdc2"
+Use the "--format=mdc2" option to force loading these as that type instead
+Warning: detected hash type "LM", but the string is also recognized as "mscash"
+Use the "--format=mscash" option to force loading these as that type instead
+Warning: detected hash type "LM", but the string is also recognized as "mscash2"
+Use the "--format=mscash2" option to force loading these as that type instead
+Warning: detected hash type "LM", but the string is also recognized as "NT"
+Use the "--format=NT" option to force loading these as that type instead
+Warning: detected hash type "LM", but the string is also recognized as "Raw-MD4"
+Use the "--format=Raw-MD4" option to force loading these as that type instead
+Warning: detected hash type "LM", but the string is also recognized as "Raw-MD5"
+Use the "--format=Raw-MD5" option to force loading these as that type instead
+Warning: detected hash type "LM", but the string is also recognized as "Raw-MD5u"
+Use the "--format=Raw-MD5u" option to force loading these as that type instead
+Warning: detected hash type "LM", but the string is also recognized as "Raw-SHA1-AxCrypt"
+Use the "--format=Raw-SHA1-AxCrypt" option to force loading these as that type instead
+Warning: detected hash type "LM", but the string is also recognized as "ripemd-128"
+Use the "--format=ripemd-128" option to force loading these as that type instead
+Warning: detected hash type "LM", but the string is also recognized as "Snefru-128"
+Use the "--format=Snefru-128" option to force loading these as that type instead
+Warning: detected hash type "LM", but the string is also recognized as "ZipMonster"
+Use the "--format=ZipMonster" option to force loading these as that type instead
+Using default input encoding: UTF-8
+Using default target encoding: CP850
+Loaded 2 password hashes with no different salts (LM [DES 256/256 AVX2])
+Warning: poor OpenMP scalability for this hash type, consider --fork=12
+Will run 12 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+0g 0:00:00:02 DONE (2025-11-10 21:29) 0g/s 602238p/s 602238c/s 1204KC/s 0177842.ABYGUR
+Session completed.
+❯ john --format=MD2 --wordlist=rockyou_10char.txt hash1.txt > /dev/null 2>&1 && john --show --format=MD2 hash1.txt
+0 password hashes cracked, 1 left
+❯ wc -l rockyou_10char.txt
+2014080 rockyou_10char.txt
+❯ zsh: exit 130
+
+❯ john --format=Raw-MD5 --wordlist=rockyou_10char.txt hash1.txt > /dev/null 2>&1 && john --show --format=Raw-MD5 hash1.txt
+0 password hashes cracked, 1 left
+❯ john --format=NT --wordlist=rockyou_10char.txt hash1.txt > /dev/null 2>&1 && john --show --format=NT hash1.txt
+0 password hashes cracked, 1 left
+❯ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   ../.gitignore
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ./
+
+no changes added to commit (use "git add" and/or "git commit -a")
+❯ cd ..
+      ✓    hw1/           hw2/      ?    hw3/      ✓    README.md
+❯ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        hw3/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+❯ git add .
+❯ git commit -m "Lab 3 complete"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: empty ident name (for <emmanart@pdx.edu>) not allowed
+[1]    31822 exit 128   git commit -m "Lab 3 complete"
+❯ git config --global user.email "emmanart@pdx.edu"
+❯ git config --global user.name "emmanart"
+❯ git add .
+❯ git commit -m "Lab 3 complete"
+[main 5b3d9f5] Lab 3 complete
+ 19 files changed, 3988598 insertions(+)
+ create mode 100644 hw3/combinations.py
+ create mode 100644 hw3/combinations.txt
+ create mode 100644 hw3/hash1.txt
+ create mode 100644 hw3/hw3.md
+ create mode 100644 hw3/hw3_instructions.md
+ create mode 100644 hw3/images/crackthehashcompleted(emmanart).png
+ create mode 100644 hw3/rockyou20.txt
+ create mode 100644 hw3/rockyou20_space.txt
+ create mode 100644 hw3/rockyou_10char.txt
+ create mode 100644 hw3/rockyou_4char.txt
+ create mode 100644 hw3/rockyou_6char.txt
+ create mode 100644 hw3/sample.awk
+ create mode 100644 hw3/test_key
+ create mode 100644 hw3/test_key.john
+ create mode 100644 hw3/test_key.pub
+ create mode 100644 hw3/test_key_clean.john
+ create mode 100644 hw3/three_word_combinations.txt
+ create mode 100644 hw3/two_word_space.txt
+❯ git push
+Username for 'https://gitlab.cecs.pdx.edu': emmanart
+Password for 'https://emmanart@gitlab.cecs.pdx.edu':
+Enumerating objects: 23, done.
+Counting objects: 100% (23/23), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (20/20), done.
+Writing objects: 100% (21/21), 14.15 MiB | 1.82 MiB/s, done.
+Total 21 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://gitlab.cecs.pdx.edu/emmanart/introsec-f25-emmanart.git
+   c20e670..5b3d9f5  main -> main

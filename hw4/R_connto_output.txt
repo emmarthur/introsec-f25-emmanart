@@ -1,0 +1,66 @@
+10.5.63.6 has 151 distinct ipsrc on ports: tcp/22, tcp/25, tcp/110, udp/53
+32.97.255.112 has 54 distinct ipsrc on ports: tcp/80
+209.67.181.11 has 50 distinct ipsrc on ports: tcp/80
+10.5.63.7 has 42 distinct ipsrc on ports: tcp/80, tcp/135, tcp/139, tcp/721, udp/137, udp/138
+10.5.63.255 has 37 distinct ipsrc on ports: udp/137, udp/138
+208.10.192.175 has 23 distinct ipsrc on ports: tcp/80
+204.71.200.246 has 12 distinct ipsrc on ports: tcp/80
+10.5.63.1 has 11 distinct ipsrc on ports: tcp/113, udp/53
+10.5.63.230 has 11 distinct ipsrc on ports: tcp/139, udp/137, udp/138
+207.46.142.26 has 11 distinct ipsrc on ports: tcp/80
+216.101.171.2 has 10 distinct ipsrc on ports: tcp/110
+193.164.170.30 has 10 distinct ipsrc on ports: tcp/110
+209.67.181.20 has 9 distinct ipsrc on ports: tcp/80
+10.5.63.200 has 9 distinct ipsrc on ports: tcp/80, tcp/139
+208.10.192.176 has 8 distinct ipsrc on ports: tcp/80
+208.10.192.202 has 7 distinct ipsrc on ports: tcp/80
+10.5.63.14 has 6 distinct ipsrc on ports: tcp/113, udp/137, udp/138
+10.5.63.22 has 5 distinct ipsrc on ports: tcp/23, tcp/139
+10.5.63.27 has 4 distinct ipsrc on ports: tcp/113, tcp/139, udp/137
+10.5.63.11 has 4 distinct ipsrc on ports: tcp/139, udp/137
+207.46.143.254 has 4 distinct ipsrc on ports: tcp/80
+204.71.200.167 has 4 distinct ipsrc on ports: tcp/80
+204.71.201.113 has 4 distinct ipsrc on ports: tcp/80
+10.5.63.231 has 3 distinct ipsrc on ports: tcp/139, udp/137
+206.13.28.62 has 3 distinct ipsrc on ports: tcp/110
+10.5.63.204 has 3 distinct ipsrc on ports: udp/137, udp/138
+207.5.63.2 has 3 distinct ipsrc on ports: udp/53
+206.253.217.13 has 3 distinct ipsrc on ports: tcp/80
+206.253.217.8 has 3 distinct ipsrc on ports: tcp/80
+208.10.192.161 has 3 distinct ipsrc on ports: tcp/80
+10.5.63.23 has 3 distinct ipsrc on ports: udp/137, udp/138
+10.5.63.24 has 2 distinct ipsrc on ports: tcp/23, udp/137
+10.5.63.17 has 2 distinct ipsrc on ports: tcp/139, udp/137
+255.255.255.255 has 2 distinct ipsrc on ports: udp/67, udp/68
+10.5.63.15 has 2 distinct ipsrc on ports: udp/137, udp/138
+10.5.63.25 has 2 distinct ipsrc on ports: tcp/139, udp/137
+10.5.63.4 has 1 distinct ipsrc on ports: tcp/23
+128.9.0.107 has 1 distinct ipsrc on ports: udp/53
+192.33.4.12 has 1 distinct ipsrc on ports: udp/53
+192.36.148.17 has 1 distinct ipsrc on ports: udp/53
+202.12.27.33 has 1 distinct ipsrc on ports: udp/53
+128.8.10.90 has 1 distinct ipsrc on ports: udp/53
+192.5.5.241 has 1 distinct ipsrc on ports: udp/53
+192.112.36.4 has 1 distinct ipsrc on ports: udp/53
+193.0.14.129 has 1 distinct ipsrc on ports: udp/53
+198.41.0.4 has 1 distinct ipsrc on ports: udp/53
+10.5.63.12 has 1 distinct ipsrc on ports: tcp/139
+192.203.230.10 has 1 distinct ipsrc on ports: udp/53
+198.32.64.12 has 1 distinct ipsrc on ports: udp/53
+128.63.2.53 has 1 distinct ipsrc on ports: udp/53
+198.41.0.10 has 1 distinct ipsrc on ports: udp/53
+10.5.63.28 has 1 distinct ipsrc on ports: tcp/712
+10.5.63.18 has 1 distinct ipsrc on ports: tcp/891
+199.170.104.36 has 1 distinct ipsrc on ports: tcp/25
+10.5.63.29 has 1 distinct ipsrc on ports: tcp/700
+10.5.63.35 has 1 distinct ipsrc on ports: udp/137
+207.44.165.251 has 1 distinct ipsrc on ports: tcp/25
+199.245.73.66 has 1 distinct ipsrc on ports: tcp/119
+206.170.168.217 has 1 distinct ipsrc on ports: tcp/23
+10.5.255.255 has 1 distinct ipsrc on ports: udp/138
+199.222.69.4 has 1 distinct ipsrc on ports: tcp/25
+199.95.210.99 has 1 distinct ipsrc on ports: tcp/80
+199.95.207.173 has 1 distinct ipsrc on ports: tcp/80
+198.232.147.17 has 1 distinct ipsrc on ports: tcp/25
+10.5.63.8 has 1 distinct ipsrc on ports: tcp/515
+18.85.2.138 has 1 distinct ipsrc on ports: udp/53
